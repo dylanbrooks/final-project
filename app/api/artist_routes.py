@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from app.models import db, Artist, Song
 
 artist_routes = Blueprint("artists", __name__)
+song_routes = Blueprint("songs", __name__)
 
 @artist_routes.route("/")
 def artists():
@@ -16,4 +17,13 @@ def songs(id):
     return {
         "artist": artist.to_dict(),
         "songs": [song.to_dict() for song in songs]
+    }
+
+
+@song_routes.route("/<int:id>")
+def lyrics(id):
+    song = Song.query.get(id)
+    print('whatever i want')
+    return {
+        "song": song.to_dict()
     }

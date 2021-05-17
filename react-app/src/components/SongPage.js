@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import jaoImg from '../jao-artist.jpg'
 import './CSS/SongPage.css'
-import jaoImg from '../jao.jpg'
 
+function SongPage() {
+    const [song, setSong] = useState({});
+    const songId = useParams();
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(`/api/songs/${songId.songId}`);
+            const responseData = await response.json();
+            await setSong(responseData.song);
+        }
+        fetchData();
+    }, []);
 
-
-
-const SongPage = () => {
-
-
+    // const songFunc = (song) => {
+    //     return (
+    //         <>
+    //         {song.lyrics}
+    //         </>
+    //     );
+    // };
 
     return (
+        console.log(song),
         <>
-            <div className='outerDiv'>
-                <div className='topDiv' />
-                <img className='AlbumImg' src={jaoImg} height='300px' width='300px' />
-                <div className='ArtistText'>
-                    Jão
-                </div>
-                <div className='SongText'>
-                    Me Beija Com Raiva
-                </div>
-                <div className='lyrics'>
-                    The lyrics will go here.
-                </div>
+            <div className='topDiv'>
+                <img src={song.albumArtUrl} />
+            </div>
+            <div className="artistOuterDiv">
+            <div>
+                <img id="albumArt" src={song.albumArtUrl} alt="logo" height="250" />
+            </div>
+            <div id="songName">
+                <h1>{song.name}</h1>
+            </div>
+            </div>
+            <div id='lyricsDiv'>
+            <h2>Lyrics: </h2>
+            <div dangerouslySetInnerHTML={{ __html: song.lyrics }}></div>
             </div>
         </>
-    )
+    );
 }
-
 
 export default SongPage;

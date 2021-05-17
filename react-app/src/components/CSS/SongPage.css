@@ -1,0 +1,21 @@
+#topContainer{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+#songName{
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 100;
+    margin-top: 90px;
+    margin-left: 10px;
+}
+
+
+#lyricsDiv{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    transform: translateY(-220px);
+    font-family: 'Libre Franklin', sans-serif;
+}

@@ -19,18 +19,18 @@ const HomePage = () => {
                 </div>
                 <div className="imgHolder">
                     <div id="jaoImg">
-                        <NavLink to="/" exact={true} activeClassName="active">
-                            <img src={jaoImg} alt="logo" height="250" />
+                        <NavLink to="/song/5" exact={true} activeClassName="active">
+                            <img className='homeAlbumImg' src={jaoImg} alt="logo" height="250" />
                         </NavLink>
                     </div>
                     <div id="ozunaImg">
                         <NavLink to="/" exact={true} activeClassName="active">
-                            <img src={ozunaImg} alt="logo" height="250" />
+                            <img className='homeAlbumImg' src={ozunaImg} alt="logo" height="250" />
                         </NavLink>
                     </div>
                     <div id="staycImg">
                         <NavLink to="/" exact={true} activeClassName="active">
-                            <img src={staycImg} alt="logo" height="250" />
+                            <img className='homeAlbumImg' src={staycImg} alt="logo" height="250" />
                         </NavLink>
                     </div>
                 </div>

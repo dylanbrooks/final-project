@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import banner from './banner.png'
@@ -9,6 +9,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [searchInput, setSearchInput] = useState('');
+  const user = useSelector(state => state.session.user)
 
   const searchFunc = async (e) => {
     e.preventDefault();
@@ -32,19 +33,27 @@ const NavBar = () => {
               <img src={banner} alt="logo" height="60" />
             </NavLink>
         </div>
+        {!user &&
         <div className="loginButton">
-            <NavLink to="/login" exact={true} activeClassName="active">
-              Login
-                </NavLink>
-        </div>
-        <div className="signupButton">
-            <NavLink to="/sign-up" exact={true} activeClassName="active">
-              Sign Up
+            <NavLink id='loginButton' to="/login" exact={true} activeClassName="active">
+              LOG IN
             </NavLink>
+        </div>
+          }
+          {!user &&
+        <div className="signupButton">
+            <a id='signupButton' href="/sign-up" exact={true} activeClassName="active">
+              SIGN UP
+            </a>
           </div>
+        }
           <div>
           </div>
+         {user && 
+         <div id='logoutButtonDiv'>
         <LogoutButton />
+        </div>
+         }
       </div>
     </nav>
   );

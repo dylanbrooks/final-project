@@ -1,0 +1,24 @@
+#resultsText{
+    display: flex;
+    justify-content: center;
+    font-family: 'Libre Franklin', sans-serif;
+    color: black;
+}
+
+
+.searchResults{
+    display: flex;
+    justify-content: center;
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: green;
+}
+
+.searchResults li{
+    list-style-type: none;
+}
+
+.searchResults li > a{
+    text-decoration: none;
+    color: black;
+}

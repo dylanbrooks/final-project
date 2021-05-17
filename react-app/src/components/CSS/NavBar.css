@@ -4,21 +4,43 @@ html, body{
 
 .barPanel{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    background-color: #ffff64;
+    align-content: center;
+    background-color: rgb(255, 255, 100);
 }
 
 #homeButton{
-    right: 50%;
+    flex: 1 1 auto;
+    text-align: center;
 }
 
-.signupButton{
-    right: 0px;
+#signupButton{
+    margin: 0px 10px;
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    flex: 3 0 40%
 }
 
-.loginButton{
-    right: 5%;
+#loginButton{
+    /* right: 5%; */
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    flex: 3 0 40%
 }
 
+.searchForm{
+    margin: 0px 10px;
+}
+
+#logoutButtonDiv{
+    margin: 0px 10px;
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {NavLink, useParams} from 'react-router-dom';
+import './CSS/SearchResults.css'
 
 
 function Search() {
@@ -29,8 +30,8 @@ function Search() {
 
     return (
         <div>
-            <h1>Results:</h1>
-            <ul>{searchResults}</ul>
+            <h1 id='resultsText'>Search Results:</h1>
+            <ul className='searchResults'>{searchResults}</ul>
         </div>
     )
 }

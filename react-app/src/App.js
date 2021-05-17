@@ -63,7 +63,7 @@ function App() {
         <Route path="/artists/:artistId" exact={true}>
           <ArtistPage />
         </Route>
-        <Route path="/artists/:artistId/song/:songId" exact={true}>
+        <Route path="/song/:songId" exact={true}>
           <SongPage />
         </Route>
       </Switch>

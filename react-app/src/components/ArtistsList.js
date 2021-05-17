@@ -24,7 +24,7 @@ function ArtistList() {
     return (
         <>
             <h1>Songs: </h1>
-            <ul>{song}</ul>
+            <ul>{songs}</ul>
         </>
     );
 }

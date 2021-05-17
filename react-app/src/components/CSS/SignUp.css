@@ -1,0 +1,30 @@
+.formDiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    border: black;
+}
+
+#signupForm{
+    border:black;
+}
+
+#signupText{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+#signupSubmitButton{
+    margin-top: 10px;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: grey;
+    border-radius: 3px;
+}
+
+.signupLabels{
+    font-family: 'Libre Franklin', sans-serif;
+}
