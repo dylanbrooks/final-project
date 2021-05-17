@@ -15,7 +15,7 @@ class Song(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'albumArtUrl': self.imageUrl,
+            'albumArtUrl': self.albumArtUrl,
             'lyrics': self.lyrics,
             'artistId': self.artistId,
             'userId': self.userId
