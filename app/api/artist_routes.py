@@ -27,9 +27,9 @@ def lyrics(id):
         "song": song.to_dict()
     }
 
-@translation_routes.route("/<int:id>")
-def translations(id):
-    translation = Translation.query.get(id)
-    return {
-        "translation": translation.to_dict()
-    }
+# @translation_routes.route("/<int:id>")
+# def translations(id):
+#     translation = Translation.query.get(id)
+#     return {
+#         "translation": translation.to_dict()
+#     }
