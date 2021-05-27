@@ -8,7 +8,7 @@ class Translation(db.Model):
     startIndex = db.Column(db.Integer, nullable=False)
     stopIndex = db.Column(db.Integer, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    # songId = db.Column(db.Integer, db.ForeignKey('songs.id'), nullable=False)
+    songId = db.Column(db.Integer, db.ForeignKey('songs.id'), nullable=False)
 
     def to_dict(self):
         return {
@@ -17,5 +17,5 @@ class Translation(db.Model):
             'startIndex': self.startIndex,
             'stopIndex': self.stopIndex,
             'userId': self.userId,
-            # 'songId': self.songId
+            'songId': self.songId
         }
