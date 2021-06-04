@@ -16,7 +16,7 @@ html, body{
 }
 
 #signupButton{
-    margin: 0px 10px;
+    margin-right: 10px;
     font-family: 'Libre Franklin', sans-serif;
     text-decoration: none;
     color: black;
@@ -33,6 +33,24 @@ html, body{
     flex: 3 0 40%
 }
 
+#demoLoginButton{
+    /* right: 5%; */
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    flex: 3 0 40%;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    margin: 0 10px;
+}
+
+
+
 .searchForm{
     margin: 0px 10px;
 }
@@ -43,4 +61,5 @@ html, body{
     text-decoration: none;
     color: black;
     font-size: 17px;
+    
 }

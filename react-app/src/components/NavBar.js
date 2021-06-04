@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import { login } from '../store/session'
 import banner from './banner.png'
 import './CSS/NavBar.css'
 
@@ -34,11 +35,18 @@ const NavBar = () => {
             </NavLink>
         </div>
         {!user &&
+        <>
         <div className="loginButton">
             <NavLink id='loginButton' to="/login" exact={true} activeClassName="active">
               LOG IN
             </NavLink>
         </div>
+        <div className="demoLogin">
+            <button id='demoLoginButton' onClick={async (e) => { await dispatch(login('demo@aa.io', 'password')) }}>
+              DEMO LOG IN
+            </button>
+        </div>
+        </>
           }
           {!user &&
         <div className="signupButton">

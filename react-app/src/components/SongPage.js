@@ -38,7 +38,7 @@ function SongPage() {
             </div>
             </div>
             <div id='lyricsDiv'>
-            <h2>Lyrics: </h2>
+                <h2>Lyrics: </h2>
             <div dangerouslySetInnerHTML={{ __html: song.lyrics }}></div>
             </div>
         </>
