@@ -5,9 +5,16 @@ from app.models import db, Artist
 # Adds a demo user, you can add other users here if you want
 def seed_artists():
 
-    jao = Artist(name='Jao', imageUrl='JaoImage')
+    jao = Artist(
+        name='Jao', imageUrl='https://images.genius.com/d0af812a25991286af3e1d3f2cf27def.1000x1000x1.png')
+    stayc = Artist(
+        name='STAYC', imageUrl='https://images.genius.com/f20b57fc8e0eec49da30d22acf7b5b46.766x766x1.png')
+    ozuna = Artist(
+        name='Ozuna', imageUrl='https://images.genius.com/80bdeecd185f21dcc0eed81d8bac27ee.918x918x1.png')
 
     db.session.add(jao)
+    db.session.add(stayc)
+    db.session.add(ozuna)
 
     db.session.commit()
 

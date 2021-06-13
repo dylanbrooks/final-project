@@ -21,6 +21,16 @@ def seed_songs():
         name='Vou Morrer Sozinho', albumArtUrl='1', lyrics='1', artistId='1', userId='1')
     triste_pra_sempre = Song(
         name='Triste Pra Sempre', albumArtUrl='1', lyrics='1', artistId='1', userId='1')
+    asap = Song(
+        name='ASAP', albumArtUrl='https://images.genius.com/3fad5b29419dc447ed7d68e8739019b1.1000x1000x1.png',
+        lyrics="[Intro: All]<br>STAYC girls, it's going down < br > <br > [Verse 1: J & amp; < i > Sumin < /i > ] < br > Time is running, boy, 그건 누구에겐 돈 < br > You know I'm so dope, 더는 못 기다려 줘<br><i>원래 나는 좀 참을성이 없는 몸<br>솔직한 게 좋은 걸, but you gotta know, yeah-yeah</i><br><br>[Pre-Chorus: Seeun, <i>Isa</i> &amp; <b>Yoon</b>]<br>달콤하기만 해도 싫어, so check it<br>매너 좋은 거 착한 거는 나도 구분해, yeah<br><i>순간 반짝할 거면 시작도 않는 걸<br>Sometimes, 내가 생각해도</i> (<b>I think I'm really cool < /b > ) < br > <br > [Chorus: Sieun & amp; < i > Yoon < /i > ] < br > ASAP, 내 반쪽, 아니, 완전 copy < br > 나와 똑같아 내 맘 잘 알아줄 < br > <i > ASAP, 꼭 닮은 내 décalcomanie < br > 눈앞에 나타나 줘 < /i > <br > <br > [Post-Chorus: Isa, < i > Sumin < /i > &amp; < b > Seeun < /b > ] < br > ASAP < br > Hoo-ooh-ooh-ooh < br > <i > ASAP < br > Hoo-ooh-ooh-ooh < /i > <br > <b > 눈앞에, 눈앞에, 나타나 줘",
+        artistId='2', userId='1'
+    )
+    tiempo = Song(
+        name='Tiempo', albumArtUrl='https://images.genius.com/0cf5244b2123b6b9234b6cd7cae570d5.1000x1000x1.png',
+        lyrics="[Intro]<br>Woh-oh-oh-oh-oh-oh, jajaja<br>Woh-oh-oh-oh-oh-oh<br>Sky Rompiendo El Bajo<br>Dímelo, Gotay<br><br>[Coro]<br>Me puse a dedicarte tiempo (Tiempo)<br>Tiempo del que yo había perdido (Perdido)<br>Amore' como el tuyo, no lo entiendo(No lo entiendo) < br > Estoy solo y ahora eso e' un lío (Eh, eh)<br>Porque salgo pa' la pista, pa'l party<br>Babie' suelta', alcohol y mari (Mari)<br>No quiero que me llame', mami(Woh) < br > Ando suelto de party por Miami < br > <br > [Verso 1] < br > Ma', tan chulita que te ve' (Que te ve')<br>Ese booty parece de TV (De TV, V)<br>Ando con par dе trago' y par de .10 (Woh) < br > Yo te di banda pa' que tú mе la de' (Woh) < br > Mi cubanita quiere que prenda < br > Tú me conoce', por eso e' que no uso prenda'<br>Jangueando en Dubái, las babie' están flow Kendall < br > Yo soy la movie, cabrone', no me la vendan<br>Mi cubanita quiere que prenda<br>Tú me conoce', por eso e' que no uso prenda' < br > Jangueando en Dubái, las babie' están flow Kendall (¡Yah!)<br>Yo soy la movie, cabrone', no me la vendan, yeah-eh-eh",
+        artistId='3', userId='1'
+    )
 
     db.session.add(me_beija_com_raiva)
     db.session.add(amor_pirata)
@@ -29,6 +39,8 @@ def seed_songs():
     db.session.add(imaturo)
     db.session.add(vou_morrer_sozinho)
     db.session.add(triste_pra_sempre)
+    db.session.add(asap)
+    db.session.add(tiempo)
 
     db.session.commit()
 
