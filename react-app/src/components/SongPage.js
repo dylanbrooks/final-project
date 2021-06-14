@@ -6,13 +6,13 @@ import './CSS/SongPage.css'
 
 function SongPage() {
     const [song, setSong] = useState({});
-    const [translation, setTranslation] = useState('');
+    const [translation, setTranslation] = useState();
     const [startIndex, setStartIndex] = useState();
     const [stopIndex, setStopIndex] = useState();
     const [comment, setComment] = useState();
     const comments = useSelector(state => state.songStorage.comment)
     const userId = useSelector(state => state.session.user.id);
-    const trans = useSelector(state => state.songStorage.trans)
+    const trans = useSelector(state => state.songStorage.translation)
     const songId = useParams();
     const dispatch = useDispatch();
 
@@ -77,6 +77,7 @@ function SongPage() {
 
     return (
         <>
+            <div className='topContainer'>
             <div className='topDiv'>
                 <img src={song.albumArtUrl} />
             </div>
@@ -88,6 +89,7 @@ function SongPage() {
                 <h1>{song.name}</h1>
             </div>
             </div>
+            <div className='bigContainer'>
             <div id='lyricsDiv'>
                 <h2>Lyrics: </h2>
             {/* <div dangerouslySetInnerHTML={{ __html: song.lyrics }} onMouseUp={collectText}></div> */}
@@ -95,7 +97,7 @@ function SongPage() {
             </div>
                 <form id='transForm' onSubmit={TransCreation}>
                     <div id='translationForm'>
-                        <label id='translationFormLabel'>Enter Translation:</label>
+                            <label id='translationFormLabel'>Enter Translation: &nbsp;</label>
                     <input
                         type='hidden'
                         name='startIndex'
@@ -119,12 +121,13 @@ function SongPage() {
                         ></input>
                         <button id='transFormButton'
                         type='submit'
-                        > Add Translation </button>
+                        > SUBMIT </button>
                     </div>
                 </form>
                 <form id='commentForm' onSubmit={CommentCreation}>
                     <div id='commentForm'>
-                        <label id='commentFormLabel'>Enter Comment:</label>
+                            <label id='commentFormLabel'>Post Comment: &nbsp;
+                        </label>
                     <input
                         type='hidden'
                         name='userId'
@@ -140,25 +143,35 @@ function SongPage() {
                     ></input>
                     <button id='commentFormButton'
                         type='submit'
-                    > Post Comment </button>
+                    > Post</button>
                     </div>
                 </form>
-                {/* {trans?.map(trans => (
+                {song.lyrics &&
+                <>
+                {trans?.map(translation => (
                     // return (
-                    <div id='commentListDiv'>
-                        {trans.trans}
+                    <div id='translationListDiv'>
+                        <div id='singleTranslation'>
+                        {translation.translation}
+                        </div>
+                        <div id='translatedFrom'>
+                        <mark>{song.lyrics.slice(translation.startIndex, translation.stopIndex)}</mark>
+                        </div>
                     </div>
                     // )
-                ))} */}
+                ))}
+                </>
+                }
+                </div>
                 {comments?.map(comment => (
                     // return (
                         <div id='commentListDiv'>
-                            {comment.username}
-                            {comment.comment}
+                            <mark>{comment.username}
+                            {comment.comment}</mark>
                         </div>
                     // )
                 ))}
-
+            </div>
         </>
     );
 }

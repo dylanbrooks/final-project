@@ -1,7 +1,6 @@
 
 const ADD_TRANS = "songStorage/ADD_TRANS"
 const GET_TRANS = "songStorage/GET_TRANS"
-const SET_TRANS = "songStorage/SET_TRANS"
 const ADD_COMMENT = "songStorage/ADD_COMMENT"
 const GET_COMMENT = "songStorage/GET_COMMENT"
 
@@ -28,10 +27,6 @@ const getComment = (comment) => ({
     payload: comment
 })
 
-const setTrans = (trans) => ({
-    type: SET_TRANS,
-    payload: trans
-})
 
 
 export const createTranslation = ({translation, startIndex, stopIndex, userId, songId}) => async (dispatch) => {
@@ -50,7 +45,7 @@ export const createTranslation = ({translation, startIndex, stopIndex, userId, s
     });
     const newTranslation = await response.json();
     dispatch(addTrans(newTranslation))
-    return newTranslation;
+    // return newTranslation;
 }
 
 export const getTranslation = (songId) => async (dispatch) => {
@@ -60,8 +55,6 @@ export const getTranslation = (songId) => async (dispatch) => {
     dispatch(getTrans(responseData))
     return responseData;
 }
-
-
 
 
 export const createComment = ({ comment, userId, songId }) => async (dispatch) => {
@@ -95,21 +88,18 @@ export default function songStorage(state = {}, action) {
     let newState
     switch (action.type) {
         case ADD_TRANS:
-            return action.payload;
-        case GET_TRANS:
             newState = Object.assign({}, state)
-            newState.trans = action.payload
+            newState.trans = [...state.translation, action.payload]
             return newState
-            // return { ...state, trans: action.payload };
-        case SET_TRANS:
-            return action.payload
+        case GET_TRANS:
+            newState = { ...state, ...action.payload }
+            return newState
         case ADD_COMMENT:
             newState = Object.assign({}, state)
             newState.comment = [...state.comment, action.payload]
             return newState
         case GET_COMMENT:
             newState = {...state, ...action.payload}
-            // newState.comment = action.payload
             return newState
         default:
             return state;

@@ -27,7 +27,7 @@ const NavBar = () => {
             type='text'
             placeholder='Find an artist'
             onChange={(e) => setSearchInput(e.target.value)}></input>
-          <button id='searchButton' onClick={searchFunc}>Search</button>
+          <button id='searchButton' onClick={searchFunc}>SEARCH</button>
         </form>
         <div id="homeButton">
             <NavLink to="/" exact={true} activeClassName="active">

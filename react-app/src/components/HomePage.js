@@ -7,6 +7,8 @@ import staycImg from '../stayc.jpg'
 import badBunnyImg from '../bad-bunny.png'
 import rauwImg from '../rauw.png'
 import lagumImg from '../lagum.jpg'
+import gitHub from '../github.png'
+import linkedIn from '../linkedin.png'
 
 
 
@@ -54,6 +56,12 @@ const HomePage = () => {
                         </NavLink>
                     </div>
                 </div>
+                <a href="https://github.com/dylanbrooks/genio" exact={true} activeClassName="active">
+                    <img className='aboutLink' src={gitHub} alt="logo" height="30" />
+                </a>
+                <a href="https://www.linkedin.com/in/dylan-brooks-662439212/" exact={true} activeClassName="active">
+                    <img className='aboutLink' src={linkedIn} alt="logo" height="30" />
+                </a>
             </div>
         </>
 

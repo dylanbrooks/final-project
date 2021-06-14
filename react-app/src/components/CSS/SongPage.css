@@ -1,5 +1,6 @@
-/* #topContainer{
+/* .topContainer{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 20px;
 } */
@@ -26,11 +27,21 @@
     margin: 0 auto;
     font-family: 'Libre Franklin', sans-serif;
     margin-left: 60%;
-    transform: translateY(-1420px);
+    transform: translateY(-1320px);
+    font-weight: bold;
 }
 
 .lyricsDiv{
     white-space: pre;
+}
+
+#commentForm{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Libre Franklin', sans-serif;
+    transform: translateY(-50px);
+    font-weight: bold;
 }
 
 #commentListDiv{
@@ -38,4 +49,54 @@
     width: 100%;
     margin: 0 auto;
     font-family: 'Libre Franklin', sans-serif;
+    padding-top: 15px;
+    transform: translateY(-120px);
+    font-style: italic;
+}
+
+#translationListDiv{
+    max-width: 600px;
+    width: 100%;
+    margin-top: 30px;
+    font-family: 'Libre Franklin', sans-serif;
+    margin-left: 60%;
+    transform: translateY(-1320px);
+}
+
+#singleTranslation{
+    padding-bottom: 4px;
+}
+
+#translatedFrom{
+    font-style: italic;
+    font-size: 12px;
+    white-space: pre;
+}
+
+mark{
+    background-color: lightgrey;
+}
+
+#commentFormButton{
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    outline:none;
+    cursor:pointer;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 0;
+}
+
+#transFormButton{
+    font-family: 'Libre Franklin', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    outline:none;
+    cursor:pointer;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 0;
 }
