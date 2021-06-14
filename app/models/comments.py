@@ -1,7 +1,7 @@
 from .db import db
 
 
-class Comments(db.Model):
+class Comment(db.Model):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -12,7 +12,7 @@ class Comments(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'comment': self.translation,
+            'comment': self.comment,
             'userId': self.userId,
             'songId': self.songId
         }

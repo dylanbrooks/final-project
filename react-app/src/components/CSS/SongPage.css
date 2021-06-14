@@ -1,8 +1,8 @@
-#topContainer{
+/* #topContainer{
     display: flex;
     justify-content: center;
     margin: 20px;
-}
+} */
 
 #songName{
     font-family: 'Libre Franklin', sans-serif;
@@ -20,6 +20,22 @@
     font-family: 'Libre Franklin', sans-serif;
 }
 
-.highlightedText{
-    
+#transForm{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Libre Franklin', sans-serif;
+    margin-left: 60%;
+    transform: translateY(-1420px);
+}
+
+.lyricsDiv{
+    white-space: pre;
+}
+
+#commentListDiv{
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Libre Franklin', sans-serif;
 }

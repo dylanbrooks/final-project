@@ -17,7 +17,15 @@
 }
 
 
-.imgHolder{
+.imgHolder1{
+    display: flex;
+    /* flex-direction: row; */
+    /* flex-flow: center; */
+    justify-content: center;
+    /* height: 300px; */
+}
+
+.imgHolder2{
     display: flex;
     /* flex-direction: row; */
     /* flex-flow: center; */
@@ -32,5 +40,9 @@
 }
 
 #ozunaImg{
+    margin: 0px 25px;
+}
+
+#rauwImg{
     margin: 0px 25px;
 }

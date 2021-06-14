@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.artist_routes import artist_routes
 from .api.song_routes import song_routes
 from .api.trans_routes import translation_routes
+from .api.comment_routes import comment_routes
 from .seeds import seed_commands
 
 from .config import Config
@@ -36,6 +37,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(artist_routes, url_prefix='/api/artists')
 app.register_blueprint(song_routes, url_prefix='/api/songs')
 app.register_blueprint(translation_routes, url_prefix='/api/translations')
+app.register_blueprint(comment_routes, url_prefix='/api/comments')
 db.init_app(app)
 Migrate(app, db)
 

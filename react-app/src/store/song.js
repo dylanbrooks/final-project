@@ -2,6 +2,8 @@
 const ADD_TRANS = "songStorage/ADD_TRANS"
 const GET_TRANS = "songStorage/GET_TRANS"
 const SET_TRANS = "songStorage/SET_TRANS"
+const ADD_COMMENT = "songStorage/ADD_COMMENT"
+const GET_COMMENT = "songStorage/GET_COMMENT"
 
 
 const addTrans = (trans) => ({
@@ -13,6 +15,17 @@ const addTrans = (trans) => ({
 const getTrans = (trans) => ({
     type: GET_TRANS,
     payload: trans
+})
+
+const addComment= (comment) => ({
+    type: ADD_COMMENT,
+    payload: comment
+})
+
+
+const getComment = (comment) => ({
+    type: GET_COMMENT,
+    payload: comment
 })
 
 const setTrans = (trans) => ({
@@ -50,6 +63,34 @@ export const getTranslation = (songId) => async (dispatch) => {
 
 
 
+
+export const createComment = ({ comment, userId, songId }) => async (dispatch) => {
+    const response = await fetch("/api/comments/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            comment,
+            userId,
+            songId
+        }),
+    });
+    const newComment = await response.json();
+    dispatch(addComment(newComment))
+    // return newComment;
+}
+
+export const getComments = (songId) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${songId.songId}`);
+    console.log(response);
+    const responseData = await response.json();
+    dispatch(getComment(responseData))
+    return responseData;
+}
+
+
+
 export default function songStorage(state = {}, action) {
     let newState
     switch (action.type) {
@@ -62,6 +103,14 @@ export default function songStorage(state = {}, action) {
             // return { ...state, trans: action.payload };
         case SET_TRANS:
             return action.payload
+        case ADD_COMMENT:
+            newState = Object.assign({}, state)
+            newState.comment = [...state.comment, action.payload]
+            return newState
+        case GET_COMMENT:
+            newState = {...state, ...action.payload}
+            // newState.comment = action.payload
+            return newState
         default:
             return state;
     }

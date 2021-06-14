@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createTranslation, getTranslation } from "../store/song"
+import { createTranslation, createComment, getComments, getTranslation } from "../store/song"
 import './CSS/SongPage.css'
 
 function SongPage() {
@@ -9,10 +9,13 @@ function SongPage() {
     const [translation, setTranslation] = useState('');
     const [startIndex, setStartIndex] = useState();
     const [stopIndex, setStopIndex] = useState();
+    const [comment, setComment] = useState();
+    const comments = useSelector(state => state.songStorage.comment)
     const userId = useSelector(state => state.session.user.id);
     const trans = useSelector(state => state.songStorage.trans)
     const songId = useParams();
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         async function fetchData() {
@@ -24,7 +27,10 @@ function SongPage() {
         if (!trans) {
             dispatch(getTranslation(songId))
         }
-    }, [trans, dispatch]);
+        if (!comments) {
+            dispatch(getComments(songId))
+        }
+    }, [trans, comments, dispatch]);
 
     console.log(trans)
 
@@ -40,6 +46,18 @@ function SongPage() {
         console.log('submitted')
     }
 
+    const CommentCreation = async (e) => {
+        e.preventDefault();
+        const newComment = await dispatch(createComment({
+            comment,
+            userId,
+            songId: song.id
+        }))
+        console.log('comment submitted')
+    }
+
+    console.log(comments)
+
     const collectText = (e) => {
         const lyrics = song.lyrics;
         const highlightedText = window.getSelection().toString();
@@ -47,6 +65,10 @@ function SongPage() {
 
         const firstIndex = lyrics.indexOf(highlightedText);
         const lastIndex = (textLength - 1) + firstIndex;
+
+        console.log(highlightedText)
+        console.log(firstIndex)
+        console.log(lastIndex)
 
         setStartIndex(firstIndex);
         setStopIndex(lastIndex);
@@ -68,12 +90,12 @@ function SongPage() {
             </div>
             <div id='lyricsDiv'>
                 <h2>Lyrics: </h2>
-            <div dangerouslySetInnerHTML={{ __html: song.lyrics }} onMouseUp={collectText}></div>
-                {/* <div> {song.lyrics} </div> */}
+            {/* <div dangerouslySetInnerHTML={{ __html: song.lyrics }} onMouseUp={collectText}></div> */}
+                <div className='lyricsDiv' onMouseUp={collectText}> {song.lyrics} </div>
             </div>
                 <form id='transForm' onSubmit={TransCreation}>
                     <div id='translationForm'>
-                        <label id='translationForm'>Enter Translation:</label>
+                        <label id='translationFormLabel'>Enter Translation:</label>
                     <input
                         type='hidden'
                         name='startIndex'
@@ -100,6 +122,43 @@ function SongPage() {
                         > Add Translation </button>
                     </div>
                 </form>
+                <form id='commentForm' onSubmit={CommentCreation}>
+                    <div id='commentForm'>
+                        <label id='commentFormLabel'>Enter Comment:</label>
+                    <input
+                        type='hidden'
+                        name='userId'
+                        value={userId}></input>
+                    <input
+                        type='hidden'
+                        name='songId'
+                        value={song.id}></input>
+                    <input
+                        type='text'
+                        name='comment'
+                        onChange={(e) => setComment(e.target.value)}
+                    ></input>
+                    <button id='commentFormButton'
+                        type='submit'
+                    > Post Comment </button>
+                    </div>
+                </form>
+                {/* {trans?.map(trans => (
+                    // return (
+                    <div id='commentListDiv'>
+                        {trans.trans}
+                    </div>
+                    // )
+                ))} */}
+                {comments?.map(comment => (
+                    // return (
+                        <div id='commentListDiv'>
+                            {comment.username}
+                            {comment.comment}
+                        </div>
+                    // )
+                ))}
+
         </>
     );
 }
